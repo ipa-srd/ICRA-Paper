@@ -2,9 +2,9 @@
 
 Autonomous robots are making their way from the production industry to the service industry. This change introduces a new set of problems, that deal with interactions of people and robots. These include for example following and approaching customers, and navigating through a crowded environment. 
 
-To solve these problems, the first step is the detection of people, which is here done using a safety laser detector on leg-height \todo{ref laser scanner}. In the past, this has already been approached with model-based solutions, that require prior knowledge about shapes and behaviour of legs \todo{ref arras and subsequent paper}.
+To solve these problems, the first step is the detection of people, which is here done using a safety laser detector on leg-height\footnote{Sick S300 safety laser scanner}. In the past, this has already been approached with model-based solutions, that require prior knowledge about shapes and behaviour of legs \cite{Arras07usingboosted} \cite{weinrich2014people}.
 We present a new approach, where a neural network learns characteristics on its own and places unique identifiers on persons, making it easy to track them over a long period of time.
 
-Having the information and history of positions of people, we can learn trajectories, behaviour and intentions when the robot is serving customers. We provide a way to model the trajectories using Long short-term memory (LSTM) cells in combination with a Mixture density layer, which outputs a set of normal distributions, similar to \textit{paper from graves}.
+Having the information and history of positions of people, we can learn trajectories, behaviour and intentions when the robot is serving customers. We provide a way to model the trajectories using Long short-term memory (LSTM) cells in combination with a Mixture density layer, which outputs a set of normal distributions, similar to \cite{bishop1994mixture} \cite{graves2013generating}.
 
 In this paper, we present the models that are used to train the program, as well as some benchmarking and comparisons with similar projects.

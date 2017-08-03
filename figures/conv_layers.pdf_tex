@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{329.6bp}%
+    \setlength{\unitlength}{331.2bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,22 +48,24 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1.34708738)%
+  \begin{picture}(1,1.29951691)%
     \put(0,0){\includegraphics[width=\unitlength]{conv_layers.pdf}}%
-    \put(0.75382625,1.11559581){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N_{frames}$}}}%
-    \put(0.37639907,1.27700358){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N_{points}$}}}%
-    \put(0.03142707,1.1156734){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(1)}}}%
-    \put(0.30783111,0.87712493){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Convolute}}}%
-    \put(0.41462722,0.81887254){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Max pool}}}%
-    \put(0.71072565,0.83889682){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times N_{conv}$}}}%
-    \put(0.03142707,0.83897437){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(2)}}}%
-    \put(0.30783111,0.67522712){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Transposed convolution}}}%
-    \put(0.03142707,0.67392583){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(3)}}}%
-    \put(0.8126674,0.65928517){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times N_{conv}$}}}%
-    \put(0.19541487,0.46240857){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Output weights}}}%
-    \put(0.37639907,0.05370264){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N_{points}$}}}%
-    \put(0.03142707,0.47004233){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(4)}}}%
-    \put(0.03142707,0.19698415){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(5)}}}%
-    \put(0.56434691,0.46240857){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Softmax layer}}}%
+    \put(0.74897685,1.07035138){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N_{frames}$}}}%
+    \put(0.37337299,1.2309794){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N_{points}$}}}%
+    \put(0.03006752,1.0704286){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(1)}}}%
+    \put(0.30513627,0.83303254){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Convolute}}}%
+    \put(0.41141646,0.77506157){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Max pool}}}%
+    \put(0.80270283,0.7949891){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times N_{conv}$}}}%
+    \put(0.03006752,0.79506628){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(2)}}}%
+    \put(0.30513627,0.63211008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Transposed convolution}}}%
+    \put(0.03006752,0.63081507){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(3)}}}%
+    \put(0.1932631,0.42031964){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times$ Output weights}}}%
+    \put(0.37337299,0.02808089){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N_{points}$}}}%
+    \put(0.03006752,0.42791652){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(4)}}}%
+    \put(0.03006752,0.17067022){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(5)}}}%
+    \put(0.60872204,0.42031964){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Softmax layer}}}%
+    \put(0.80270283,0.61624514){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times N_{conv}$}}}%
+    \put(0.71618357,0.19202899){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{leg}}}}%
+    \put(0.71618357,0.14371981){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{non-leg}}}}%
   \end{picture}%
 \endgroup%

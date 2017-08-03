@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{287.69145508bp}%
+    \setlength{\unitlength}{292.225bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,19 +48,31 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1.53370777)%
+  \begin{picture}(1,1.44195397)%
     \put(0,0){\includegraphics[width=\unitlength]{cluster_convs.pdf}}%
-    \put(0.41041162,1.15543742){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Create convolutions}}}%
-    \put(0.36830718,0.85404947){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_i =  w^{feats}_{i} * \sum_{j} w^{conv}_{i,j}$}}}%
-    \put(0.40375326,0.67011319){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_1$}}}%
-    \put(0.498299,0.67011319){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_2$}}}%
-    \put(0.59284473,0.67011319){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_3$}}}%
-    \put(0.73188258,0.67011319){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_n$}}}%
-    \put(0.28494991,1.28458316){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Get next laser point in current scan}}}%
-    \put(0.96370188,0.9782621){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times N_{points}$}}}%
-    \put(0.95615128,0.17942713){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$2 \times N_{convs}$}}}%
-    \put(0.52374359,0.42136707){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N_{points}$}}}%
-    \put(0.07547769,1.00107249){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(1)}}}%
-    \put(0.07547769,0.21133761){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(2)}}}%
+    \put(0.36160984,1.20736067){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Create convolutions}}}%
+    \put(0.37491094,0.79566852){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_i =  v_{i} * \sum_{j} w_{i,j}$}}}%
+    \put(0.35505478,0.62553628){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_1$}}}%
+    \put(0.44813375,0.62553628){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_2$}}}%
+    \put(0.54121271,0.62553628){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_3$}}}%
+    \put(0.65071737,0.62553628){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_{i=n}$}}}%
+    \put(0.23809453,1.33450286){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Get next laser point in current scan}}}%
+    \put(0.90631642,1.03293403){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times N_{points}$}}}%
+    \put(0.88245726,0.15341313){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$2 \times N_{convs}$}}}%
+    \put(0.45675789,0.39159964){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N_{points}$}}}%
+    \put(0.0756739,1.05539054){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(1)}}}%
+    \put(0.0756739,0.18482855){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(2)}}}%
+    \put(0.35505478,1.03617876){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$w_1$}}}%
+    \put(0.44813375,1.03617876){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$w_2$}}}%
+    \put(0.54121271,1.03617876){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$w_3$}}}%
+    \put(0.65071737,1.03617876){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$w_{i=n}$}}}%
+    \put(0.38203979,0.95717887){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times$}}}%
+    \put(0.47511875,0.95717887){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times$}}}%
+    \put(0.56819771,0.95717887){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times$}}}%
+    \put(0.70507854,0.95717887){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\times$}}}%
+    \put(0.38595072,0.88600084){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_1$}}}%
+    \put(0.47902968,0.88600084){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_2$}}}%
+    \put(0.57210864,0.88600084){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_3$}}}%
+    \put(0.70898947,0.88600084){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_{i=n}$}}}%
   \end{picture}%
 \endgroup%

@@ -1,21 +1,18 @@
 \section{Model architecture}
 
-The detection and identification of legs and therefore people based on laser scans is separated into three steps. First, the laser scans are classified by using a set of convolutional and pooling layers. The points labeled as belonging to legs are sorted out and typically clustered based on euclidian distance, in order to identify persons. This approach does not work well, when people are close together or even when they are moving, as the program would then either cluster too many legs together or see two legs as separate people respectively.
+Learning positions of people and identifying them requires a neural network to solve several tasks. First, the laser scans are classified by using a set of convolutional and pooling layers. The points labeled as belonging to legs are sorted out and typically clustered based on euclidian distance, in order to identify persons. This approach does not work well, when people are close together or even when they are moving, as the program would then either cluster too many legs together or see two legs as separate people respectively.
 
-This can be countered by supplying the clustering algorithm with additional information. During the convolution step, the network learns features which are unique to legs in different situations. Those can be extracted and passed as additional parameters to the clustering algorithm, which not only allows higher accuracy, but also labeling \todo{better word} a pair of legs with a unique identifier.
+This can be countered by supplying the clustering algorithm with additional information. During the convolution step, the network learns features which are unique to legs in different situations. Those can be extracted and passed as additional parameters to the clustering algorithm, which not only allows higher accuracy, but also selecting \todo{better word} a pair of legs with a unique identifier.
 
 Having identifiers and positions, they can then be fed into the third and last step of the setup, which aims to predict trajectories of individual people. The network takes a set of positions, that are run through a LSTM cell, which implicitly works as a memory for the program and holds the information necessary to build future trajectories.
 
 \subsection{Classification of the laser scan}
 
 \begin{figure}
-% Hier kannst du einstellen, wie groß das Bild in deinem Dokument ist (der Text wird nicht mit skaliert)
+
 \def\svgwidth{0.4 \textwidth}
-% Hier die schriftgröße im Bild
 \small
-% Der Pfad zu der pdf_tex Datei
 \import{figures/}{conv_layers.pdf_tex}
-% Hier ne Bildunterschrift
 \caption{\textbf{Laser scan classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class human or non-human in (5).}
 \label{fig:laser_classification}
 \end{figure}
@@ -46,9 +43,9 @@ and
 \end{itemize} 
 With the following approach, we find a high accuracy and are also able to track people on certain features.
 
-As the inputs are convoluted, the network finds characteristics, such as shapes and movement. Some of these features are more important than others, this is why we implemented a training in order to find weights $w^{feats}$, such that parameters of people in different situations are easily separable. The $i$th convoluted layer has its weights $w^{conv}_i$ multiplied by $w^{feats}_i$ and the resulting cluster parameter $p_i$ is then found by the sum of all weights:
+As the inputs are convoluted, the network finds characteristics, such as shapes and movement. Some of these features are more important than others, this is why we implemented a training in order to find weights $v$, such that parameters of people in different situations are easily separable. The $i$th convoluted layer has its weights $w_i$ multiplied by $v_i$ and the resulting cluster parameter $p_i$ is then found by the sum of all weights:
 \begin{equation}
-	p_i =  w^{feats}_{i} * \sum_{j} w^{conv}_{i,j}
+	p_i = v_{i} * \sum_{j} w_{i,j}
 \end{equation}
 
 This introduces apart from the euclidian distance $2*N_{convs}$ additional parameters to the clustering algorithm, highly increasing accuracy. As the parameters have been chosen such that people in different situations are easily separable and given the unlikeliness of two people being in the same position in the same situation, we can additionally use the parameters to track the people, which allows for example to follow customers around.
@@ -61,6 +58,29 @@ This introduces apart from the euclidian distance $2*N_{convs}$ additional param
 % Der Pfad zu der pdf_tex Datei
 \import{figures/}{cluster_convs.pdf_tex}
 % Hier ne Bildunterschrift
-\caption{\textbf{Laser scan classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class human or non-human in (5).}
-\label{fig:laser_classification}
+\caption{\textbf{Convolution-based clustering.} (1) For every point in the current laser scan, $N_{conv}$ convolutions are created. A clustering parameter $p_i$ is derived from the weights $w_i$ of the convolution and the trained weights $v_i$, which assumes that some convolutions are more important than others. (2) The resulting clustering matrix holds $n=2*N_{conv}$ parameters for each point in the current laser scan.}
+\label{fig:cluster_convs}
 \end{figure}
+
+
+
+
+\subsection{Trajectory prediction}
+
+With the information of position of individual people, we can learn to predict trajectories over some time. A trajectory of a single person can be modeled with a normal distribution, or if the path is unclear, a number of distributions $N_{dist}$ are necessary.
+
+This leads to the approach of using a mixture density network \cite{bishop1994mixture}. The network learns from parameters $\pi$, $\mu$, $\sigma$ and $\rho$ according to \cite{graves2013generating} a distribution is given as:
+\begin{equation}
+	\mathcal{N}(x|\mu,\sigma,\rho) = \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}} \exp\left[ \frac{-Z}{2(1-\rho^2)} \right]
+\end{equation}
+with
+\begin{equation}
+	Z = \frac{(x_1 - \mu_1)^2}{\sigma_1^2} + \frac{(x_2 - \mu_2)^2}{\sigma_2^2} - \frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}
+\end{equation}
+such that the ensemble is given as:
+\begin{equation}
+	Pr(x|y) = \sum_{j=1}^{N_{dist}} \pi_j \mathcal{N}(x|\mu_j,\sigma_j,\rho_j)
+\end{equation}
+for every input point x from the laser scan.
+
+As the future movement depends on previous positions, the parameters $\mu$, $\sigma$, $\rho$ and $\pi$ are derived from a LSTM cell, which takes positions as input. The network is trained unsupervised and therefore optimizes itself given time.
