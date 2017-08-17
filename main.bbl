@@ -40,4 +40,15 @@ C.~M. Bishop, ``Mixture density networks,'' 1994.
 A.~Graves, ``Generating sequences with recurrent neural networks,'' \emph{arXiv
   preprint arXiv:1308.0850}, 2013.
 
+\bibitem{1013691}
+A.~Fod, A.~Howard, and M.~A.~J. Mataric, ``A laser-based people tracker,'' in
+  \emph{Proceedings 2002 IEEE International Conference on Robotics and
+  Automation (Cat. No.02CH37292)}, vol.~3, 2002, pp. 3024--3029.
+
+\bibitem{aguirre2014leg}
+E.~Aguirre, M.~Garcia-Silvente, and J.~Plata, ``Leg detection and tracking for
+  a mobile robot and based on a laser device, supervised learning and particle
+  filtering,'' in \emph{ROBOT2013: First Iberian Robotics Conference}.\hskip
+  1em plus 0.5em minus 0.4em\relax Springer, 2014, pp. 433--440.
+
 \end{thebibliography}

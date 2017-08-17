@@ -3,23 +3,29 @@
 \citation{weinrich2014people}
 \citation{bishop1994mixture}
 \citation{graves2013generating}
+\citation{1013691}
+\citation{1013691}
+\citation{aguirre2014leg}
+\citation{weinrich2014people}
 \newlabel{todo:keywords}{{}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Model architecture}{1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Laser scan classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class human or non-human in (5).}}{1}}
-\newlabel{fig:laser_classification}{{1}{1}}
-\newlabel{todo:better word}{{II}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Classification of the laser scan}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}State of the art}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Model architecture}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Classification of the laser scan}{1}}
 \citation{bishop1994mixture}
 \citation{graves2013generating}
 \bibdata{lib/main}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Clustering of leg points}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {Convolution-based clustering.} (1) For every point in the current laser scan, $N_{conv}$ convolutions are created. A clustering parameter $p_i$ is derived from the weights $w_i$ of the convolution and the trained weights $v_i$, which assumes that some convolutions are more important than others. (2) The resulting clustering matrix holds $n=2*N_{conv}$ parameters for each point in the current laser scan.}}{2}}
-\newlabel{fig:cluster_convs}{{2}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Trajectory prediction}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Laser scan classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class leg or non-leg in (5).}}{2}}
+\newlabel{fig:laser_classification}{{1}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Clustering of leg points}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Trajectory prediction}{2}}
 \bibcite{Arras07usingboosted}{1}
 \bibcite{weinrich2014people}{2}
 \bibcite{bishop1994mixture}{3}
 \bibcite{graves2013generating}{4}
+\bibcite{1013691}{5}
+\bibcite{aguirre2014leg}{6}
 \bibstyle{IEEEtran}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {Convolution-based clustering.} (1) For every point in the current laser scan, $N_{conv}$ convolutions are created. A clustering parameter $p_i$ is derived from the weights $w_i$ of the convolution and the trained weights $v_i$, which assumes that some convolutions are more important than others. (2) The resulting clustering matrix holds $n=2*N_{conv}$ parameters for each point in the current laser scan.}}{3}}
+\newlabel{fig:cluster_convs}{{2}{3}}
 \@writefile{toc}{\contentsline {section}{References}{3}}

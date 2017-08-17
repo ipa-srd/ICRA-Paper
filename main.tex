@@ -74,10 +74,42 @@
 \usepackage{import}
 \usepackage{xcolor}
 \usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{amsmath}
 
+% Should either be Production or Release
+\def \paperstate {Production}
+
+\newcounter{countertodo}
 \newcommand{\todo}[1]{
-[\textcolor{red}{\textbf{\textit{#1}}}]
-\label{todo:#1}
+	\stepcounter{countertodo}
+	\ifthenelse{\equal{\paperstate}{Production}}{
+		[\textcolor{red}{\textbf{\textit{#1}}}]
+		\label{todo:#1}
+	}{}
+}
+
+\newcommand*\ifcounter[1]{%
+  \ifcsname c@#1\endcsname
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+}
+
+\newcommand{\abbrev}[1]{
+	\ifcsname c@counterab#1\endcsname
+		\stepcounter{counterab#1}
+		#1
+	\else
+		\newcounter{counterab#1}
+		(#1)
+	\fi
+}
+
+\newcommand{\getabbrev}[1]{
+	The abbrevation #1 is used \the\numexpr\value{counterab#1}-1\, times.
 }
 
 % Some very useful LaTeX packages include:
@@ -597,9 +629,29 @@ The authors would like to thank...
 %\enlargethispage{-5in}
 
 
-
-
 % that's all folks
+\ifthenelse{\equal{\paperstate}{Production}}{
+	\ifnum\thecountertodo=0
+	
+	\else
+		\clearpage
+		\newpage
+		\onecolumn{
+		\huge IMPORTANT INFORMATION DURING PRODUCTION
+		\noindent
+		\normalsize \\ \\
+		\ifnum\thecountertodo=1
+			\noindent
+			There is \arabic{countertodo} todo left!
+		\else
+			There are \arabic{countertodo} todos left!
+		\fi
+		}
+	\fi
+	
+	\noindent
+	\getabbrev{LRM}
+}{}
 \end{document}
 
 

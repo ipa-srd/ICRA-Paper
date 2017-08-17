@@ -2,9 +2,9 @@
 
 Learning positions of people and identifying them requires a neural network to solve several tasks. First, the laser scans are classified by using a set of convolutional and pooling layers. The points labeled as belonging to legs are sorted out and typically clustered based on euclidian distance, in order to identify persons. This approach does not work well, when people are close together or even when they are moving, as the program would then either cluster too many legs together or see two legs as separate people respectively.
 
-This can be countered by supplying the clustering algorithm with additional information. During the convolution step, the network learns features which are unique to legs in different situations. Those can be extracted and passed as additional parameters to the clustering algorithm, which not only allows higher accuracy, but also selecting \todo{better word} a pair of legs with a unique identifier.
+This can be countered by supplying the clustering algorithm with additional information. During the convolution step, the network learns features which are unique to legs in different situations. Those can be extracted and passed as additional parameters to the clustering algorithm, which not only allows higher accuracy, but also providing a pair of legs with a unique identifier.
 
-Having identifiers and positions, they can then be fed into the third and last step of the setup, which aims to predict trajectories of individual people. The network takes a set of positions, that are run through a LSTM cell, which implicitly works as a memory for the program and holds the information necessary to build future trajectories.
+Having identifiers and positions, they can then be fed into the third and last step of the setup, which aims to predict trajectories of individual people. The network takes a set of positions, that are run through an LSTM cell, which implicitly works as a memory for the program and holds the information necessary to build future trajectories.
 
 \subsection{Classification of the laser scan}
 
@@ -13,7 +13,7 @@ Having identifiers and positions, they can then be fed into the third and last s
 \def\svgwidth{0.4 \textwidth}
 \small
 \import{figures/}{conv_layers.pdf_tex}
-\caption{\textbf{Laser scan classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class human or non-human in (5).}
+\caption{\textbf{Laser scan classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class leg or non-leg in (5).}
 \label{fig:laser_classification}
 \end{figure}
 
@@ -22,33 +22,32 @@ In order to classify a laser scan, a snapshot of the current scan is taken in eq
 From the one-dimensional array as input, the network would only find characteristics in the objective shapes of the laser scans. To also account for movement, $N_{frames}$ snapshots are composed together.
 The desired outputs are probabilities for each point in the most current snapshot to be in either class leg or non-leg.
 
-Therefore, the mathematical description of the model can be described by a function $F$ that maps an input of size $[N_{frames}, N_{points}]$ to an output of size $[2, N_{points}]$.
+Therefore, the mathematical description of the model can be described by a function $F$ that maps an input of size $[N_{frames}, N_{points}]$ to an output of size $[N_{points}, 2]$.
 
 The output is modelled from the input as outlined in Figure \ref{fig:laser_classification} and described in more detail in the following.
 When convolutional layers are used for classification, a network will train the weights such that they represent characteristics for a class. In this way, the characteristics are first of geometrical nature and become more abstract the more layers there are.
 
 The input is therefore fed into a convolutional layer and then downsampled using a max pooling layer. This is repeated $N_{conv}$ times, after which the output is a one dimensional array of length smaller than $N_{points}$.
 
-To gain a classification for each point in the most current laser scan, the output is upscaled using transpose convolutions, again extracting features. Multiplication by output weights and applying the softmax function results in the desired shape $[2, N_{points}]$, where each entry is the probability of the point belonging to class leg and non-leg.
+To gain a classification for each point in the most current laser scan, the output is upscaled using transpose convolutions, again extracting features. Multiplication by output weights and applying the softmax function results in the desired shape $[N_{points}, 2]$. Each entry consists of the two probabilities of a point being in class leg $P_{leg}$ or non-leg $P_{nonleg}$ with $P_{leg} + P_{nonleg} = 1$.
 
 
 
 \subsection{Clustering of leg points}
 
-In order to gain information about the current position of people, the classified points are clustered together. This usually poses two major problems:
+In order to gain information about the current position and identity of people, the classified points are clustered together. This usually poses two major problems:
 \begin{itemize}
 \item The clustering has a high margin of error when legs of a single person are too far away or when legs of different people are together
-and
 \item tracking of a person has to be handled externally.
 \end{itemize} 
 With the following approach, we find a high accuracy and are also able to track people on certain features.
 
-As the inputs are convoluted, the network finds characteristics, such as shapes and movement. Some of these features are more important than others, this is why we implemented a training in order to find weights $v$, such that parameters of people in different situations are easily separable. The $i$th convoluted layer has its weights $w_i$ multiplied by $v_i$ and the resulting cluster parameter $p_i$ is then found by the sum of all weights:
+As the inputs are convoluted, the network finds characteristics, such as shapes and movement. In order to find the most important characteristics, a training was implemented to find weights $v$, such that parameters of people in different situations are easily separable. The $i$th convoluted layer has its weights $w_i$ multiplied by $v_i$ and the resulting cluster parameter $p_i$ is then found by the sum of all weights:
 \begin{equation}
 	p_i = v_{i} * \sum_{j} w_{i,j}
 \end{equation}
 
-This introduces apart from the euclidian distance $2*N_{convs}$ additional parameters to the clustering algorithm, highly increasing accuracy. As the parameters have been chosen such that people in different situations are easily separable and given the unlikeliness of two people being in the same position in the same situation, we can additionally use the parameters to track the people, which allows for example to follow customers around.
+This introduces $2*N_{convs}$ additional parameters to the clustering algorithm, highly increasing accuracy when used together with the euclidian distance. As the parameters have been chosen such that people in different situations are easily separable and given the unlikeliness of two people being in the same position in the same situation, we can additionally use the parameters to place a similar identifier on a single person over several frames. This allows to track them in order to predict their movements.
 
 \begin{figure}
 % Hier kannst du einstellen, wie groß das Bild in deinem Dokument ist (der Text wird nicht mit skaliert)
@@ -69,18 +68,18 @@ This introduces apart from the euclidian distance $2*N_{convs}$ additional param
 
 With the information of position of individual people, we can learn to predict trajectories over some time. A trajectory of a single person can be modeled with a normal distribution, or if the path is unclear, a number of distributions $N_{dist}$ are necessary.
 
-This leads to the approach of using a mixture density network \cite{bishop1994mixture}. The network learns from parameters $\pi$, $\mu$, $\sigma$ and $\rho$ according to \cite{graves2013generating} a distribution is given as:
+This leads to the approach of using a mixture density network \cite{bishop1994mixture}. The network learns from parameters $\pi$, $\mu$, $\sigma$ and $\rho$ according to \cite{graves2013generating}, so that a distribution is given as:
 \begin{equation}
 	\mathcal{N}(x|\mu,\sigma,\rho) = \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}} \exp\left[ \frac{-Z}{2(1-\rho^2)} \right]
 \end{equation}
 with
 \begin{equation}
-	Z = \frac{(x_1 - \mu_1)^2}{\sigma_1^2} + \frac{(x_2 - \mu_2)^2}{\sigma_2^2} - \frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}
+	Z = \frac{(x_1 - \mu_1)^2}{\sigma_1^2} + \frac{(x_2 - \mu_2)^2}{\sigma_2^2} - \frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}.
 \end{equation}
-such that the ensemble is given as:
+Therefore we can define the ensemble of distributions as
 \begin{equation}
 	Pr(x|y) = \sum_{j=1}^{N_{dist}} \pi_j \mathcal{N}(x|\mu_j,\sigma_j,\rho_j)
 \end{equation}
 for every input point x from the laser scan.
 
-As the future movement depends on previous positions, the parameters $\mu$, $\sigma$, $\rho$ and $\pi$ are derived from a LSTM cell, which takes positions as input. The network is trained unsupervised and therefore optimizes itself given time.
+As the future movement depends on previous positions, the parameters $\mu$, $\sigma$, $\rho$ and $\pi$ are derived from a recurrent network cell. A long-short term memory (LSTM) was used, which allows for information to be kept over a long time. This way, the network was trained on different patterns, so that it can recognize similar ones later in the evaluation. The LSTM cell will take the input positions and directly outputs the parameters for the mixture of normal distributions.
