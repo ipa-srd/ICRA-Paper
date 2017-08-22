@@ -45,6 +45,13 @@ A.~Fod, A.~Howard, and M.~A.~J. Mataric, ``A laser-based people tracker,'' in
   \emph{Proceedings 2002 IEEE International Conference on Robotics and
   Automation (Cat. No.02CH37292)}, vol.~3, 2002, pp. 3024--3029.
 
+\bibitem{kleinehagenbrock2002person}
+M.~Kleinehagenbrock, S.~Lang, J.~Fritsch, F.~Lomker, G.~A. Fink, and
+  G.~Sagerer, ``Person tracking with a mobile robot based on multi-modal
+  anchoring,'' in \emph{Robot and Human Interactive Communication, 2002.
+  Proceedings. 11th IEEE International Workshop on}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, 2002, pp. 423--429.
+
 \bibitem{aguirre2014leg}
 E.~Aguirre, M.~Garcia-Silvente, and J.~Plata, ``Leg detection and tracking for
   a mobile robot and based on a laser device, supervised learning and particle

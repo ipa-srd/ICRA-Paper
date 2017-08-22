@@ -98,18 +98,10 @@
   \fi
 }
 
-\newcommand{\abbrev}[1]{
-	\ifcsname c@counterab#1\endcsname
-		\stepcounter{counterab#1}
-		#1
-	\else
-		\newcounter{counterab#1}
-		(#1)
-	\fi
-}
+\newcommand{\abbrev}[1]{\ifcsname c@counterab#1\endcsname\stepcounter{counterab#1}#1\else\newcounter{counterab#1}(#1)\fi}
 
 \newcommand{\getabbrev}[1]{
-	The abbrevation #1 is used \the\numexpr\value{counterab#1}-1\, times.
+	The abbrevation #1 is used \the\numexpr\value{counterab#1}\, times.
 }
 
 % Some very useful LaTeX packages include:
@@ -627,7 +619,6 @@ The authors would like to thank...
 % Can be used to pull up biographies so that the bottom of the last one
 % is flush with the other column.
 %\enlargethispage{-5in}
-
 
 % that's all folks
 \ifthenelse{\equal{\paperstate}{Production}}{
