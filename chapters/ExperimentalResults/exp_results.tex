@@ -1,0 +1,16 @@
+\section{Experimental results}
+
+In order to evaluate the leg detector, the robot was set up in a corridor, recording legs of people passing through over a course of three hours. To validate the program, a region was defined, containing only walls and immovable objects. Therefore any laser scans, that were not inside the region could be identified as legs.
+
+We find, that the detector works best in close range, while becoming weaker as the range increases. This is demonstrated in Figure \ref{fig:radius_detection}, where a short, 100 second long exposure was analyzed. The leg detection was compared to the ground truth and we find almost perfect results in close range to the robot. The detection gets increasingly worse until a maximum range of 5.0 $m$.
+
+The decrease originates from three major causes. The error on the laser scans is proportional to the distance of the detector \todo{Only hypothetical, to be proven tomorrow}, which explains a linear decrease in the first part of the diagram. For larger ranges, legs are defined by fewer laser points, which makes it more difficult to extract features, as there is not enough data available. Lastly, the steep decrease, which is seen close to 5.0 $m$ is most likely caused by the absence of training data in that range, the limits of clustering too few points and the range of the laser scanner itself.
+
+\begin{figure}
+	\label{fig:radius_detection}
+		\normalsize
+		\begin{center}
+			\input{figures/radius_detection.pgf}
+		\end{center}
+		\caption{\textbf{Distance dependency of the leg detector.} The diagram shows accuracies of the leg detection as a function of the number of points in a range around the laser scanner. A range around the robot was defined and the containing number of points were counted.}
+\end{figure}
