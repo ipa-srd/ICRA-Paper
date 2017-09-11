@@ -2,9 +2,24 @@
 
 In order to evaluate the leg detector, the robot was set up in a corridor, recording legs of people passing through over a course of three hours. To validate the program, a region was defined, containing only walls and immovable objects. Therefore any laser scans, that were not inside the region could be identified as legs.
 
-We find, that the detector works best in close range, while becoming weaker as the range increases. This is demonstrated in Figure \ref{fig:radius_detection}, where a short, 100 second long exposure was analyzed. The leg detection was compared to the ground truth and we find almost perfect results in close range to the robot. The detection gets increasingly worse until a maximum range of 5.0 $m$.
+We find, that the detector works best in close range, while becoming weaker as the range increases. This is demonstrated in Figure \ref{fig:radius_detection}, where a short, 100 second long exposure was analyzed. The leg detection was compared to the ground truth and we find almost perfect results in close range to the robot. The detection gets increasingly worse until a maximum range of $5.0 m$.
 
-The decrease originates from three major causes. The error on the laser scans is proportional to the distance of the detector \todo{Only hypothetical, to be proven tomorrow}, which explains a linear decrease in the first part of the diagram. For larger ranges, legs are defined by fewer laser points, which makes it more difficult to extract features, as there is not enough data available. Lastly, the steep decrease, which is seen close to 5.0 $m$ is most likely caused by the absence of training data in that range, the limits of clustering too few points and the range of the laser scanner itself.
+The decrease originates from two major causes. For larger ranges, legs are defined by fewer laser points, which makes it more difficult to extract features, as there is not enough data available. Secondly, the steep decrease, which is seen close to $5.0 m$ is due to the absence of training data in that range, the limits of clustering too few points and the range of the laser scanner itself.
+
+Finally, we set the scanning range to $2.2 m$, where the accuracy is still high and enough data points are available. In a customer environment, it is important, that there are as few false positives as possible, to not occupy a robot in a false state. From the three hour test run, we find the truth table \ref{tab:truth} which meets these expectations and also reflects the accuracy of Figure \ref{fig:radius_detection}.
+
+\begin{table}[]
+	\label{tab:truth}
+	\centering
+	\caption{My caption}
+	\begin{tabular}{|l|l|l|l|}
+	\hline
+	 & \multicolumn{2}{c}{Detected Label} &  \\ \hline
+	 True Label & Person & No Person & Total \\ \hline
+	 Leg & \textbf{100} ($xyz \%$) & \textbf{100} ($xyz \%$) & \textbf{200} \\
+	 No Leg & \textbf{100} ($xyz \%$) & \textbf{100} ($xyz \%$) & \textbf{200} \\ \hline
+	\end{tabular}
+\end{table}
 
 \begin{figure}
 	\label{fig:radius_detection}
