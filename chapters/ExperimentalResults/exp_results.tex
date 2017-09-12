@@ -9,6 +9,14 @@ The decrease originates from two major causes. For larger ranges, legs are defin
 Finally, we set the scanning range to $2.2 m$, where the accuracy is still high and enough data points are available. In a customer environment, it is important, that there are as few false positives as possible, to not occupy a robot in a false state. From the three hour test run, we find the truth table \ref{tab:truth} which meets these expectations and also reflects the accuracy of Figure \ref{fig:radius_detection}.
 
 \begin{table}[]
+	\def \confa {7134}
+	\def \confb {518}
+	\FPeval{\confar}{round(1-\confb/\confa,1)}
+	\FPeval{\confbr}{round(\confb/\confa,1)}
+	\def \confc {0.0000000001}
+	\def \confd {1357404}
+	\FPeval{\confcr}{round(1-\confd/\confc,1)}
+	\FPeval{\confdr}{round(\confd/\confc,1)}
 	\label{tab:truth}
 	\centering
 	\caption{My caption}
@@ -16,8 +24,8 @@ Finally, we set the scanning range to $2.2 m$, where the accuracy is still high 
 	\hline
 	 & \multicolumn{2}{c}{Detected Label} &  \\ \hline
 	 True Label & Person & No Person & Total \\ \hline
-	 Leg & \textbf{100} ($xyz \%$) & \textbf{100} ($xyz \%$) & \textbf{200} \\
-	 No Leg & \textbf{100} ($xyz \%$) & \textbf{100} ($xyz \%$) & \textbf{200} \\ \hline
+	 Leg & \textbf{\confa} ($98.4 \%$) & \textbf{\confb} ($1.6 \%$) & \textbf{11750} \\
+	 No Leg & \textbf{\confc} ($0.0 \%$) & \textbf{\confd} ($100.0 \%$) & \textbf{292348} \\ \hline
 	\end{tabular}
 \end{table}
 
