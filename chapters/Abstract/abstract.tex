@@ -1,7 +1,15 @@
 \begin{abstract}
 %\boldmath
 
-This study presents a new approach to detecting humans in large environments. Making use of the latest advances in neural networks, fast scalable applications can be modeled without having knowledge about the inner workings. We present a leg detection tool, that operates only on laser scan data, classifying each point as human or non-human. The results are further used to learn to identify people, in order to predict their trajectories, which will be used for movement in crowded scenes.
+The ability to collaborate with humans is a key requirement of mobile robots to be versatile in a wide range of applications.
+From a technological perspective, this requires the robot to be aware of people in its close to midrange workspace.
+Due to safety purposes, most of todays mobile robots are equipped with 2D safety laser scanners mounted at leg-height.
+Using this sensor data for perceiving the environment without needing additional sensors is highly beneficial for economic reason and flexibility of the hardware design.\\
+This study presents a new approach for people detection and motion prediction in the robots workspace by solely processing 2D laser scan data.
+Making use of the latest advances in neural networks, fast scalable applications can be modeled without having knowledge about the inner workings. 
+First, we present a leg detection tool, that operates on the raw laser scan data, classifying each point as human or non-human.
+The output is further used to learn localizing humans and predicting their trajectories.
+In our experiments, we show how our approach outperforms a state-of-the-art leg detection approach and is able to precisely localize humans as well as predicting their motion for a certain prediction horizon.
 
 
 \end{abstract}
