@@ -218,7 +218,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.510848in,y=3.284805in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 0}%
+\pgftext[x=0.510848in,y=3.284805in,left,base]{0}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{3.313125in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -253,10 +253,10 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.510848in,y=3.895852in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1}%
+\pgftext[x=0.510848in,y=3.895852in,left,base]{1}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.455292in,y=3.659755in,,bottom,rotate=90.000000]{\sffamily\fontsize{10.000000}{12.000000}\selectfont F-Measure}%
+\pgftext[x=0.455292in,y=3.659755in,,bottom,rotate=90.000000]{F-Measure}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{3.313125in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -387,7 +387,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.028797in,y=4.089718in,,base]{\sffamily\fontsize{12.000000}{14.400000}\selectfont Leg detector accuracy}%
+\pgftext[x=2.028797in,y=4.089718in,,base]{Leg detector accuracy}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -567,7 +567,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.289968in,y=2.559454in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 0.75}%
+\pgftext[x=0.289968in,y=2.559454in,left,base]{0.75}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{2.377810in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -602,10 +602,10 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.289968in,y=2.960537in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1.00}%
+\pgftext[x=0.289968in,y=2.960537in,left,base]{1.00}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.234413in,y=2.724441in,,bottom,rotate=90.000000]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Precission}%
+\pgftext[x=0.234413in,y=2.724441in,,bottom,rotate=90.000000]{Precission}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{2.377810in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -785,7 +785,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=1.191274in,y=1.345274in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 100}%
+\pgftext[x=1.191274in,y=1.345274in,,top]{100}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{1.442496in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -820,7 +820,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=1.858623in,y=1.345274in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 200}%
+\pgftext[x=1.858623in,y=1.345274in,,top]{200}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{1.442496in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -855,7 +855,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.525971in,y=1.345274in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 300}%
+\pgftext[x=2.525971in,y=1.345274in,,top]{300}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{1.442496in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -890,10 +890,10 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=3.193320in,y=1.345274in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 400}%
+\pgftext[x=3.193320in,y=1.345274in,,top]{400}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.028797in,y=1.155306in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Number of people}%
+\pgftext[x=2.028797in,y=1.155306in,,top]{Number of people}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{1.442496in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -928,7 +928,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.510848in,y=1.430841in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 0}%
+\pgftext[x=0.510848in,y=1.430841in,left,base]{0}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{1.442496in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -963,10 +963,10 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.510848in,y=2.025223in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1}%
+\pgftext[x=0.510848in,y=2.025223in,left,base]{1}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.455292in,y=1.789126in,,bottom,rotate=90.000000]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Recall}%
+\pgftext[x=0.455292in,y=1.789126in,,bottom,rotate=90.000000]{Recall}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.696435in}{1.442496in}}{\pgfqpoint{2.664722in}{0.693260in}} %
@@ -1131,7 +1131,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.958932in,y=0.796017in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Convoluted leg detector}%
+\pgftext[x=0.958932in,y=0.796017in,left,base]{Convoluted leg detector}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -1145,7 +1145,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.958932in,y=0.592160in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Official leg detector (50\% threshold)}%
+\pgftext[x=0.958932in,y=0.592160in,left,base]{Official leg detector (50\% threshold)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -1159,7 +1159,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.958932in,y=0.388302in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Official leg detector (70\% threshold)}%
+\pgftext[x=0.958932in,y=0.388302in,left,base]{Official leg detector (70\% threshold)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -1173,7 +1173,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.958932in,y=0.184445in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Official leg detector (30\% threshold)}%
+\pgftext[x=0.958932in,y=0.184445in,left,base]{Official leg detector (30\% threshold)}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  15 SEP 2017 12:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  15 SEP 2017 13:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -998,7 +998,7 @@ Package pdftex.def Info: figures/conv_layers.pdf used on input line 52.
 (pdftex.def)             Requested size: 209.63669pt x 272.42734pt.
 ) [2 <./figures/conv_layers.pdf>]
 (./figures/cluster_convs.pdf_tex
-<figures/cluster_convs.pdf, id=27, 293.32085pt x 422.95515pt>
+<figures/cluster_convs.pdf, id=28, 293.32085pt x 422.95515pt>
 File: figures/cluster_convs.pdf Graphic file (type pdf)
 
 <use figures/cluster_convs.pdf>
@@ -1010,13 +1010,8 @@ Package pdftex.def Info: figures/cluster_convs.pdf used on input line 52.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 11.
 
-(./figures/radius_detection.pgf
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 80.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
-File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-))
-Overfull \hbox (7.12257pt too wide) in paragraph at lines 484--38
+(./figures/radius_detection.pgf)
+Overfull \hbox (7.12257pt too wide) in paragraph at lines 487--38
  [] 
  []
 
@@ -1048,11 +1043,11 @@ Before submitting the final camera ready copy, remember to:
 
 ] (./root.aux) ) 
 Here is how much of TeX's memory you used:
- 20315 strings out of 493304
- 466210 string characters out of 6139871
- 631195 words of memory out of 5000000
- 23264 multiletter control sequences out of 15000+600000
- 53623 words of font info for 93 fonts, out of 8000000 for 9000
+ 20259 strings out of 493304
+ 465467 string characters out of 6139871
+ 630195 words of memory out of 5000000
+ 23215 multiletter control sequences out of 15000+600000
+ 49007 words of font info for 88 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  63i,10n,74p,865b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
@@ -1071,14 +1066,13 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (6 pages, 236512 bytes).
+nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
+imes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on root.pdf (6 pages, 231190 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
