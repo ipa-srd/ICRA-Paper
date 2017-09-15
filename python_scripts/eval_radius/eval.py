@@ -39,7 +39,7 @@ ax2.set_xlim(ax1.get_xlim())
 ax2.set_xticks(x2_ticks)
 ax2.set_xticklabels([d for d in x2])
 ax2.set_xlabel(l2)
-ax2.set_ylabel("Accuracy")
+ax1.set_ylabel("Accuracy")
 
 # ax1.legend()
 plt.tight_layout()
