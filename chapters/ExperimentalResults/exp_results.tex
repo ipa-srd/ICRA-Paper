@@ -1,10 +1,12 @@
 \section{Experimental results}
 
+\subsection{Classification of laser data}
+
 In order to evaluate the leg detector, the robot was set up in a corridor, recording legs of people passing through over a course of three hours. Walls were separated from the corridor, giving a ground truth of the data. The leg detector receives the input from the laser scan and labels each point as leg or non-leg.
 In the comparison to the ground truth, we find, that the detector works best in close range, while becoming weaker as the range increases. This is demonstrated in Figure \ref{fig:radius_detection}, where a short, 100 second long exposure was analyzed.
 
 The decrease in the first half originates mainly from the difficulty of interpreting the laser data, as the points spread further out depending on the distance to the scanner. The second half additionally suggests too few data points as input to the convolutional network.
-At a distance of $2.2 m$ we still find good results in a reasonable range around the robot, which we can use to evaluate a three hour long recording of the same corridor. We find the confusion matrix in Table \ref{tab:truth}, omitting false and true negatives as the sensor recorded only a specific wall in that range as negative data, making the input redundant.
+At a distance of $2.2 m$ we still find good results in a reasonable range around the robot, which we can use to evaluate a three hour long recording of the same corridor. We find the confusion matrix in Table \ref{tab:truth}, omitting false and true negatives as the sensor recorded only a specific wall in that range as negative data, making the input redundant. The long recording shows how well the network reacts to more arbitrary data, most importantly the accuracy is still high, which we can compare against the state of the art leg detector.
 
 	\begin{table}[]
 		\def \confa {121199}
@@ -36,3 +38,30 @@ At a distance of $2.2 m$ we still find good results in a reasonable range around
 		\end{center}
 		\caption{\textbf{Distance dependency of the leg detector.} The diagram shows accuracies of the leg detection as a function of the number of points in a range around the laser scanner.}
 \end{figure}
+
+\subsection{People detection using clusters}
+
+Detecting people from the output of the laser classification is achieved by clustering the results as explained in section \ref{subs:clustering}. We compare the detection to the algorithm provided in the official ROS-repository\footnote{http://wiki.ros.org/leg\_detector} based on \cite{Arras07usingboosted}, where the detection is based on a Kalman filter. A ten second long exposure from the corridor data was hand-labeled and compared to the outputs of the programs. Due to the dependency on the distance to the scanner, different radii were considered. We find the parameters:
+\begin{itemize}
+	\item \textbf{True positives} ($TP$): The people that were detected correctly,
+	\item \textbf{False positives} ($FP$): Non-human objects classified as persons,
+	\item \textbf{False negatives} ($FN$): People that were not detected.
+\end{itemize}
+The parameters are combined into the $F-Measure \in \left[ 0,1 \right]$, separating good results (close to $1$) from bad results (close to $0$).
+\begin{equation}
+	F=\frac{2*precision*recall}{precision+recall}
+\end{equation}
+with
+\begin{equation}
+	precision = \frac{TP}{TP + FP}\\
+\end{equation}
+\begin{equation}
+	recall = \frac{TP}{TP + FN}
+\end{equation}
+
+
+
+
+
+
+

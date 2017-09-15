@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  15 SEP 2017 11:31
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  15 SEP 2017 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1008,17 +1008,15 @@ Package pdftex.def Info: figures/cluster_convs.pdf used on input line 52.
 (./chapters/ExperimentalResults/exp_results.tex
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 9.
+               Default added (so using `tbp') on input line 11.
 
 (./figures/radius_detection.pgf)
-Overfull \hbox (7.12257pt too wide) in paragraph at lines 547--36
+Overfull \hbox (7.12257pt too wide) in paragraph at lines 547--38
  [] 
  []
 
-) (./chapters/Conclusion/conclusion.tex)) (./root.bbl [3 <./figures/cluster_con
-vs.pdf>]) [4
-
-]
+[3 <./figures/cluster_convs.pdf>]) (./chapters/Conclusion/conclusion.tex))
+(./root.bbl) [4]
 Underfull \hbox (badness 10000) in paragraph at lines 640--640
 
  []
@@ -1039,11 +1037,11 @@ Before submitting the final camera ready copy, remember to:
 
 ] (./root.aux) ) 
 Here is how much of TeX's memory you used:
- 20242 strings out of 493304
- 465124 string characters out of 6139871
- 626195 words of memory out of 5000000
- 23202 multiletter control sequences out of 15000+600000
- 47411 words of font info for 86 fonts, out of 8000000 for 9000
+ 20247 strings out of 493304
+ 465184 string characters out of 6139871
+ 628195 words of memory out of 5000000
+ 23205 multiletter control sequences out of 15000+600000
+ 50103 words of font info for 89 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  63i,10n,74p,865b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
@@ -1065,7 +1063,7 @@ dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (5 pages, 221637 bytes).
+Output written on root.pdf (5 pages, 225477 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream
