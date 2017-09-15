@@ -1,4 +1,5 @@
 \section{Experimental results}
+\label{sec:Experiment}
 
 \subsection{Classification of laser data}
 
@@ -17,9 +18,9 @@ At a distance of $2.2 m$ we still find good results in a reasonable range around
 		\def \confd {18177714}
 		\FPeval{\confcr}{round(1-\confd/\confc,1)}
 		\FPeval{\confdr}{round(\confd/\confc,1)}
-		\label{tab:truth}
 		\centering
 		\caption{Leg detection in a radius of $2.2 m$.}
+		\label{tab:truth}
 		\begin{tabular}{|l|l|l|l|}
 		\hline
 		 & \multicolumn{2}{c}{Detected Label} &  \\ \hline
@@ -31,12 +32,12 @@ At a distance of $2.2 m$ we still find good results in a reasonable range around
 	\end{table}
 
 \begin{figure}
+	\normalsize
+	\begin{center}
+		\input{figures/radius_detection.pgf}
+	\end{center}
+	\caption{\textbf{Distance dependency of the leg detector.} The diagram shows accuracies of the leg detection as a function of the number of points in a range around the laser scanner.}
 	\label{fig:radius_detection}
-		\normalsize
-		\begin{center}
-			\input{figures/radius_detection.pgf}
-		\end{center}
-		\caption{\textbf{Distance dependency of the leg detector.} The diagram shows accuracies of the leg detection as a function of the number of points in a range around the laser scanner.}
 \end{figure}
 
 \subsection{People detection using clusters}
@@ -60,15 +61,15 @@ with
 \end{equation}
 
 \begin{figure}
-	\label{fig:people_detection}
 	\normalsize
 	\begin{center}
 		\input{figures/people_det.pgf}
 	\end{center}
 	\caption{\textbf{Accuracy of people detection.} People detectioin was benchmarked against the official leg detector, while counting the number of people on a frame-by-frame basis. The new convolutional leg detector outperforms the official leg detector in all tests.}
+	\label{fig:people_detection}
 \end{figure}
 
-The official leg detector outputs probabilites of persons and legs, therefore the threshold was adapted to compare the results in a more meaningful way. Especially interesting is the $Precission$, as we should not allow the robot to detect any false positives. The proposed, convoluted leg detector only starts picking up false positives after $3.4 m$, like the Adaboost leg detector with 70\% threshold. However, when comparing these two, we find a large gap in the recall, meaning that the Adaboost leg detector has a low detection rate.
+The Adaboost leg detector outputs probabilites of persons and legs, therefore the threshold was adapted to compare the results in a more meaningful way. In Figure \ref{fig:people_detection} we find the detections. Especially interesting is the $Precission$, as we should not allow the robot to detect any false positives. The proposed, convoluted leg detector only starts picking up false positives after $3.4 m$, like the Adaboost leg detector with 70\% threshold. However, when comparing these two, we find a large gap in the recall, meaning that the Adaboost leg detector has a low detection rate.
 Conclusively, the convoluted leg detector performs very well in regards to false positives and false negatives leading to a high $Recall$ and a high $Precission$, which can be seen in the $F-Measure$.
 
 
