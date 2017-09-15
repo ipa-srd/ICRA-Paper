@@ -27,7 +27,7 @@ x2.append(data[:,0][-1])
 l1 = r"Number of points to label"
 l2 = r"Radius around robot [$m$]"
 
-ax1.plot(x1, data[:,2], label="correct", color="b")
+ax1.plot(x1, data[:,2], label="correct")
 # ax1.plot(x1, data[:,3], label="fp", color="orange")
 # ax1.plot(x1, data[:,4], label="fn", color="g")
 # ax1.plot(x1, data[:,2], "x", label=None)
