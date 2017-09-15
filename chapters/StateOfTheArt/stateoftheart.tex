@@ -1,12 +1,26 @@
 \section{State of the art}
+\label{sec:sota}
 
-Lidar scanners pose an attractive way to scan the environment, due to the simple interpretation of the data and the low computational power required.
-The idea to extract people from this input has been introduced in \cite{1013691} where laser range measurements are grouped into blobs and objects. 
-Moving objects are considered as people with the downside of not detecting immovable objects.
-In order to improve on this idea, a combination of Lidar and vision data \cite{kleinehagenbrock2002person} can be applied. Information of leg positions are here extracted from the laser scanner, while a camera provides additional information through skin-colored face detection. 
+Evaluating Lidar data for navigation tasks in mobile robotics is widespread due to facts mentioned in Sec. \ref{sec:intro} but also due to the simple interpretation of the data and the low computational power required.
+In \cite{1013691}, lidar data is used for people dection and tracking where laser range measurements are grouped into blobs and objects. 
+Moving objects are considered as people with the downside of not detecting non-moving persons.
+In order to improve on this idea, a combination of Lidar and vision data \cite{kleinehagenbrock2002person} can be applied. 
+Information of leg positions are here extracted from the lidar sensor, while a camera provides additional information through skin-colored face detection. 
 Arras et al. proposed a machine learning algorithm \cite{Arras07usingboosted}, where pre-defined geometrical features are trained in a supervised learning approach. 
 It was further adapted in \cite{weinrich2014people} to expand the detection in retirement homes, allowing the classification of people with different walking aids. 
 The algorithm allows to add additional features, which are weighted and therefore filtered by importance.
-However, the expert knowledge of geometrical features pose a downside to the algorithm as well as the computational power required during evaluation. Convolutional neural networks therefore present a way to learn features without prior expertise. Since their introduction \cite{lecun_gradient-based_1998}, they are the go-to standard for object detection \cite{krizhevsky_imagenet_2012}, due to their versatility and their simple and fast implementation. Convolutional networks can be further expanded for segmentation of images \cite{long2015fully}, which gives a way to keep the input dimensionality while simultaneously detect and label objects.
-
-Trajectory prediction has already been achieved in \cite{graves2013generating}, where handwriting is generated using a mixture density network (MDN) \cite{bishop1994mixture}. These networks provide a way to model the most probable outcome as a function of multiple density terms. In order to predict from a history of input values, a Long short term memory (LSTM) \cite{hochreiter1997long} is included. This allows a way to store previous inputs and therefore predict outcomes when similarities are found. People based trajectory prediction has previously been achieved \cite{alahi2016social} using a similar approach. Making use of LSTM and MDN we therefore predict trajectories using unsupervised learning, requiring only positions of people as an input.
+However, the expert knowledge of geometrical features pose a downside to the algorithm as well as the computational power required during evaluation.\\
+Convolutional neural networks present a way to learn features without prior expertise. 
+Since their introduction \cite{lecun_gradient-based_1998}, they are the go-to standard for object detection \cite{krizhevsky_imagenet_2012}, due to their versatility and their simple and fast implementation. 
+Convolutional networks can be further expanded for segmentation of images \cite{long2015fully}, which gives a way to keep the input dimensionality while simultaneously detect and label objects.
+In the presented approach, convolutional networks are used to detect legs from raw scan data.\\
+Predicting human motion is a difficult task due to the complex behavior of humans and the variety of possible manoeuvres.
+For short term motion prediction of objects like vehicles, a good estimates is often achieved by applying the current motion state to the vehicles motion model.
+For humans however, the current motion state is not that conclusive on the future motion and an appropriate model is hard to design due to the complex kinematics. 
+Due to those constraints, we also aim for a learning based approach for the task of motion prediction.
+Machine learning based trajectory prediction has already been achieved in \cite{graves2013generating}, where handwriting is generated using a mixture density network (MDN) \cite{bishop1994mixture}. 
+These networks provide a way to model the most probable outcome as a function of multiple density terms. 
+In order to predict from a history of input values, LSTM is included in \cite{hochreiter1997long}. 
+This allows a way to store previous inputs and therefore predict outcomes when similarities are found. 
+People based trajectory prediction has previously been investigated in \cite{alahi2016social} using a similar approach.
+We build open these approaches, by applying LSTM and MDN on trajectory prediction using unsupervised learning, requiring only positions of people as an input.

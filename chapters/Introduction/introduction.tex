@@ -1,8 +1,9 @@
 \section{Introduction}
+\label{sec:intro}
 
 A wide variety of applications for mobile robots and automated guided vehicles (AGV) in industrial, entertainment or domestic environments require the robot to be aware of humans within its workspace as a basis for a non-disruptive navigation and efficient user interaction.
 Examples are sales assistance robots guiding and approaching customers in retail applications, care robots navigating through populated domestic scenes or AGVs sharing the workspace with workers in logistic environments.
-To allow the robots to operate in a shared workspace with humans, most mobile robots are nowadays equipped with 2D safety laser scanners mounted at leg-height to realize a safe collision avoidance with humans.
+To allow the robots to operate in a shared workspace with humans, most mobile robots are nowadays equipped with 2D safety laser scanners mounted at leg-height to realize a safe collision avoidance of humans.
 While these sensors primary task is to assure the detection of an object with a certain minimum size within a certain predefined area, most of them also provide raw data in terms of range measurements of the environment.
 Using this sensor data to perform detection, tracking and motion prediction of humans is highly beneficial because it avoids the costs of additional sensors.
 Moreover, in some applications, there is no possibility to mount additional sensors at an appropriate position due to the task and hardware design of the robot.\\
@@ -16,11 +17,11 @@ Additionally, it often requires expert knowledge for parameter tuning when deplo
 Learning based approaches have the potential to overcome these problems and further increase detection rates without needing any prior knowledge.
 By exploiting current advances in the field of machine learning, we present a new approach, where a neural network learns relevant characteristics on its own and places unique identifiers on humans, making it easy to track them over a long period of time.
 Having the information and history of locations, we can learn trajectories, behavior and intentions of humans in the presence of the robot. 
-We provide a way to model the trajectories using Long short-term memory (LSTM) cells in combination with a Mixture density layer, which outputs a set of normal distributions for the predicted locations of the tracked humans.\\
+We provide a way to model the trajectories using Long short-term memory (LSTM) cells in combination with a mixture density layer, which outputs a set of normal distributions for the predicted locations of the tracked humans.\\
 %similar to \cite{bishop1994mixture} \cite{graves2013generating}.
 This paper is organized as follows.
-Section 2 presents relevant related work.
-In section 3, we describe the model architecture and models and the basic formula of our algorithm followed by our experiments in Section xy.
-Section 4 concludes the paper.
+Section \ref{sec:sota} presents relevant related work.
+In section \ref{sec:model_arch}, we describe the model architecture and models and the basic formula of our algorithm followed by our experiments in Section \ref{sec:exp}.
+Section \ref{sec:concl} concludes the paper.
 
 %In this paper, we present the models that are used to train the network, as well as some benchmarking and comparisons with similar projects.
