@@ -77,7 +77,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.731305in,y=0.485556in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 0}%
+\pgftext[x=0.731305in,y=0.485556in,,top]{0}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -99,7 +99,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=1.506284in,y=0.485556in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2000}%
+\pgftext[x=1.506284in,y=0.485556in,,top]{2000}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -121,7 +121,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.281264in,y=0.485556in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 4000}%
+\pgftext[x=2.281264in,y=0.485556in,,top]{4000}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -143,10 +143,10 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=3.056243in,y=0.485556in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 6000}%
+\pgftext[x=3.056243in,y=0.485556in,,top]{6000}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.038889in,y=0.295587in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Number of points to label}%
+\pgftext[x=2.038889in,y=0.295587in,,top]{Number of points to label}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -168,7 +168,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.344676in,y=0.818664in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 0.8}%
+\pgftext[x=0.344676in,y=0.818664in,left,base]{0.8}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -190,10 +190,10 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.344676in,y=1.344280in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1.0}%
+\pgftext[x=0.344676in,y=1.344280in,left,base]{1.0}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.289121in,y=1.009297in,,bottom,rotate=90.000000]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Accuracy}%
+\pgftext[x=0.289121in,y=1.009297in,,bottom,rotate=90.000000]{Accuracy}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.662778in}{0.582778in}}{\pgfqpoint{2.752222in}{0.853038in}} %
@@ -281,7 +281,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.787879in,y=1.533038in,,bottom]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1.0}%
+\pgftext[x=0.787879in,y=1.533038in,,bottom]{1.0}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -303,7 +303,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.951787in,y=1.533038in,,bottom]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1.4}%
+\pgftext[x=0.951787in,y=1.533038in,,bottom]{1.4}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -325,7 +325,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=1.458623in,y=1.533038in,,bottom]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1.8}%
+\pgftext[x=1.458623in,y=1.533038in,,bottom]{1.8}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -347,7 +347,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=1.992584in,y=1.533038in,,bottom]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2.2}%
+\pgftext[x=1.992584in,y=1.533038in,,bottom]{2.2}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -369,7 +369,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.562194in,y=1.533038in,,bottom]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2.6}%
+\pgftext[x=2.562194in,y=1.533038in,,bottom]{2.6}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -391,7 +391,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.876835in,y=1.533038in,,bottom]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3.0}%
+\pgftext[x=2.876835in,y=1.533038in,,bottom]{3.0}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -413,7 +413,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=3.070192in,y=1.533038in,,bottom]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3.4}%
+\pgftext[x=3.070192in,y=1.533038in,,bottom]{3.4}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -435,10 +435,10 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=3.289899in,y=1.533038in,,bottom]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 5.0}%
+\pgftext[x=3.289899in,y=1.533038in,,bottom]{5.0}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.038889in,y=1.723007in,,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Radius around robot [\(\displaystyle m\)]}%
+\pgftext[x=2.038889in,y=1.723007in,,base]{Radius around robot [\(\displaystyle m\)]}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
