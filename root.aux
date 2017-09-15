@@ -12,7 +12,6 @@
 \citation{bishop1994mixture}
 \citation{hochreiter1997long}
 \citation{alahi2016social}
-\newlabel{todo:keywords}{{}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
 \newlabel{sec:intro}{{I}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {II}State of the art}{1}}
@@ -20,11 +19,14 @@
 \@writefile{toc}{\contentsline {section}{\numberline {III}Model architecture}{2}}
 \newlabel{sec:model_arch}{{III}{2}}
 \newlabel{sec:Model}{{III}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Classification of the laser scan}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Laser scan classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class leg or non-leg in (5).}}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Lidar classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class leg or non-leg in (5).}}{2}}
 \newlabel{fig:laser_classification}{{1}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Classification of the lidar data}{2}}
+\newlabel{sec:classification}{{\unhbox \voidb@x \hbox {III-A}}{2}}
 \citation{bishop1994mixture}
 \citation{graves2013generating}
+\citation{Arras07usingboosted}
+\citation{weinrich2014people}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Clustering of leg points}{3}}
 \newlabel{subs:clustering}{{\unhbox \voidb@x \hbox {III-B}}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Trajectory prediction}{3}}
@@ -32,7 +34,7 @@
 \newlabel{fig:cluster_convs}{{2}{3}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Experimental results}{3}}
 \newlabel{sec:Experiment}{{IV}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Classification of laser data}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Classification of lidar data}{3}}
 \citation{Arras07usingboosted}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {Distance dependency of the leg detector.} The diagram shows accuracies of the leg detection as a function of the number of points in a range around the laser scanner, which were counted on a frame-by-frame basis.}}{4}}
 \newlabel{fig:radius_detection}{{3}{4}}
@@ -54,9 +56,9 @@
 \bibcite{hochreiter1997long}{10}
 \bibcite{alahi2016social}{11}
 \bibstyle{IEEEtran}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Trajectory prediction}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusions and Future Work}{5}}
+\newlabel{sec:Conclusion}{{V}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {Trajectory prediction.} Shown is the current and past positions of the person (grey), the positions in the next two frames (red) and the prediction in the background.}}{5}}
 \newlabel{fig:trajectory_pred}{{5}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Trajectory prediction}{5}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{5}}
-\newlabel{sec:Conclusion}{{V}{5}}
 \@writefile{toc}{\contentsline {section}{References}{5}}

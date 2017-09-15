@@ -1,7 +1,7 @@
 \section{Experimental results}
 \label{sec:Experiment}
 
-\subsection{Classification of laser data}
+\subsection{Classification of lidar data}
 
 In order to evaluate the leg detector described in \ref{subs:classification}, we set up our mobile robot\footnote{http://www.care-o-bot.de/de/rob-work.html} equipped with a Sick S300 safety laser scanner\footnote{http://sick.com} in a populated corridor in our department, recording legs of people passing through over a course of three hours. 
 For evaluating the accuracy of the leg detector, laser scans points from the static environment were manually removed from the scan, resulting in a data set which only contains measurements resulting from human legs and serving as the ground truth.
@@ -12,7 +12,7 @@ We find, that the detector works best in close range, while becoming weaker as t
 The decrease in the first half originates mainly from the difficulty of interpreting the laser data, as the points spread further out depending on the distance to the scanner. The second half additionally suggests too few data points as input to the convolutional network and the clustering algorithm, which ultimately decides the outcome.
 At a distance of $2.2 m$ we still find good results in a reasonable range around the robot, which we can use to evaluate a three hour long recording of the same corridor. We find the confusion matrix in Table \ref{tab:truth}, omitting false and true negatives as the sensor recorded only a specific wall in that range as negative data, making the input redundant. The long recording shows how well the network reacts to more arbitrary data, most importantly the accuracy is still high, which we can compare against the state of the art leg detector.
 
-\begin{figure}
+\begin{figure}[]
 	\normalsize
 	\begin{center}
 		\input{figures/radius_detection.pgf}
@@ -46,6 +46,16 @@ At a distance of $2.2 m$ we still find good results in a reasonable range around
 \subsection{People detection using clusters}
 
 Detecting people from the output of the laser classification is achieved by clustering the results as explained in section \ref{subs:clustering}. We compare the detection to the algorithm provided in the official ROS-repository\footnote{http://wiki.ros.org/leg\_detector} based on the paper of Arras et. al.\cite{Arras07usingboosted}, which uses a Kalman filter to detect people and an Adaboost algorithm to label laser points. A ten second long data set from the corridor data was hand-labeled and compared to the outputs of the algorithm. Due to the dependency on the distance to the sensor, different radii were considered. We find the parameters:
+
+\begin{figure}
+	\normalsize
+	\begin{center}
+		\input{figures/people_det.pgf}
+	\end{center}
+	\caption{\textbf{Accuracy of people detection.} People detectioin was benchmarked against the official leg detector, while counting the number of people on a frame-by-frame basis. The new convolutional leg detector outperforms the official leg detector in all tests.}
+	\label{fig:people_detection}
+\end{figure}
+
 \begin{itemize}
 	\item \textbf{True positives} ($TP$):\\The people that were detected correctly,
 	\item \textbf{False positives} ($FP$):\\Non-human objects classified as people,
@@ -62,15 +72,6 @@ with
 \begin{equation}
 	Recall = \frac{TP}{TP + FN}
 \end{equation}
-
-\begin{figure}
-	\normalsize
-	\begin{center}
-		\input{figures/people_det.pgf}
-	\end{center}
-	\caption{\textbf{Accuracy of people detection.} People detectioin was benchmarked against the official leg detector, while counting the number of people on a frame-by-frame basis. The new convolutional leg detector outperforms the official leg detector in all tests.}
-	\label{fig:people_detection}
-\end{figure}
 
 The Adaboost leg detector outputs probabilites of persons and legs, therefore the threshold was adapted to compare the results in a more meaningful way. In Figure \ref{fig:people_detection}, we find the detections. Especially interesting is the $Precision$, as we should not allow the robot to detect any false positives. The proposed, convoluted leg detector only starts picking up false positives after $3.4 m$, like the Adaboost leg detector with 70\% threshold. However, when comparing these two, we find a large gap in the recall, meaning that the Adaboost leg detector has a low detection rate.
 Conclusively, the convoluted leg detector performs very well in regards to false positives and false negatives leading to a high $Recall$ and a high $Precission$, which can be seen in the $F-Measure$.

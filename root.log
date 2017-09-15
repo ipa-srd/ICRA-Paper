@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  15 SEP 2017 16:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.24)  15 SEP 2017 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,38 +1010,37 @@ Package pdftex.def Info: figures/cluster_convs.pdf used on input line 52.
 (pdftex.def)             Requested size: 209.63669pt x 302.28801pt.
 ))
 (./chapters/ExperimentalResults/exp_results.tex [3 <./figures/cluster_convs.pdf
->] (./figures/radius_detection.pgf)
-Overfull \hbox (7.12257pt too wide) in paragraph at lines 487--16
+>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 13.
+
+(./figures/radius_detection.pgf)
+Overfull \hbox (7.12257pt too wide) in paragraph at lines 487--17
  [] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 21.
+               Default added (so using `tbp') on input line 22.
 
-(./figures/people_det.pgf
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 221.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
-File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-))
-Overfull \hbox (16.32724pt too wide) in paragraph at lines 1468--67
+(./figures/people_det.pgf)
+Overfull \hbox (16.32724pt too wide) in paragraph at lines 1468--52
  [] 
  []
 
-[4] <figures/trajectory_pred.png, id=45, 364.2408pt x 342.5598pt>
+
+Underfull \vbox (badness 3439) has occurred while \output is active []
+
+ [4]
+<figures/trajectory_pred.png, id=44, 364.2408pt x 342.5598pt>
 File: figures/trajectory_pred.png Graphic file (type png)
 
 <use figures/trajectory_pred.png>
-Package pdftex.def Info: figures/trajectory_pred.png used on input line 85.
+Package pdftex.def Info: figures/trajectory_pred.png used on input line 87.
 (pdftex.def)             Requested size: 235.84328pt x 221.80399pt.
 ) (./chapters/Conclusion/conclusion.tex))
-(./root.bbl) [5 <./figures/trajectory_pred.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 640--640
-
- []
-
+(./root.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1053,22 +1052,19 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6
-
-
-] (./root.aux)
+[5 <./figures/trajectory_pred.png>] (./root.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 20331 strings out of 493304
- 466446 string characters out of 6139871
+ 20277 strings out of 493304
+ 465729 string characters out of 6139871
  630195 words of memory out of 5000000
- 23280 multiletter control sequences out of 15000+600000
- 50767 words of font info for 90 fonts, out of 8000000 for 9000
+ 23232 multiletter control sequences out of 15000+600000
+ 47929 words of font info for 87 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
- 63i,10n,74p,762b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,10n,74p,1147b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-
@@ -1085,14 +1081,13 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
 ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (6 pages, 260518 bytes).
+times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on root.pdf (5 pages, 255633 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
