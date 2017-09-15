@@ -1,12 +1,10 @@
 \section{Experimental results}
 
-In order to evaluate the leg detector, the robot was set up in a corridor, recording legs of people passing through over a course of three hours. To validate the program, a region was defined, containing only walls and immovable objects. Therefore any laser scans, that were not inside the region could be identified as legs.
+In order to evaluate the leg detector, the robot was set up in a corridor, recording legs of people passing through over a course of three hours. Walls were separated from the corridor, giving a ground truth of the data. The leg detector receives the input from the laser scan and labels each point as leg or non-leg.
+In the comparison to the ground truth, we find, that the detector works best in close range, while becoming weaker as the range increases. This is demonstrated in Figure \ref{fig:radius_detection}, where a short, 100 second long exposure was analyzed.
 
-We find, that the detector works best in close range, while becoming weaker as the range increases. This is demonstrated in Figure \ref{fig:radius_detection}, where a short, 100 second long exposure was analyzed. The leg detection was compared to the ground truth and we find almost perfect results in close range to the robot. The detection gets increasingly worse until a maximum range of $5.0 m$.
-
-The decrease originates from two major causes. For larger ranges, legs are defined by fewer laser points, which makes it more difficult to extract features, as there is not enough data available. Secondly, the steep decrease, which is seen close to $5.0 m$ is due to the absence of training data in that range, the limits of clustering too few points and the range of the laser scanner itself.
-
-Finally, we set the scanning range to $2.2 m$, where the accuracy is still high and enough data points are available. In a customer environment, it is important, that there are as few false positives as possible, to not occupy a robot in a false state. From the three hour test run, we find the truth table \ref{tab:truth} which meets these expectations and also reflects the accuracy of Figure \ref{fig:radius_detection}.
+The decrease in the first half originates mainly from the difficulty of interpreting the laser data, as the points spread further out depending on the distance to the scanner. The second half additionally suggests too few data points as input to the convolutional network.
+At a distance of $2.2 m$ we still find good results in a reasonable range around the robot, which we can use to evaluate a three hour long recording of the same corridor. We find the confusion matrix in Table \ref{tab:truth}, omitting false and true negatives as the sensor recorded only a specific wall in that range as negative data, making the input redundant.
 
 	\begin{table}[]
 		\def \confa {121199}
@@ -23,7 +21,7 @@ Finally, we set the scanning range to $2.2 m$, where the accuracy is still high 
 		\begin{tabular}{|l|l|l|l|}
 		\hline
 		 & \multicolumn{2}{c}{Detected Label} &  \\ \hline
-		 True Label & Person & No Person & Total \\ \hline
+		 True Label & Leg & Non-Leg & Total \\ \hline
 		 Leg & \textbf{\confa} ($\confar \%$) & \textbf{\confb} ($\confbr \%$) & \textbf{11750} \\
 		 %No Leg & \textbf{\confc} ($0.0 \%$) & \textbf{\confd} ($100.0 \%$) & \textbf{292348} \\
 		 \hline

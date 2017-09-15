@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: root.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: lib/main.bib
+Repeated entry---line 111 of file lib/main.bib
+ : @article{graves2013generating
+ :                              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 118 of file lib/main.bib
+ : @article{bishop1994mixture
+ :                           ,
+I'm skipping whatever remains of this entry
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in lecun_gradient-based_1998
+Warning--empty year in lecun_gradient-based_1998
+Warning--empty year in krizhevsky_imagenet_2012
+Warning--empty journal in bishop1994mixture
+
+Done.
+You've used 11 entries,
+            4039 wiz_defined-function locations,
+            874 strings with 9468 characters,
+and the built_in function-call counts, 9191 in all, are:
+= -- 700
+> -- 226
+< -- 86
++ -- 130
+- -- 36
+* -- 449
+:= -- 1289
+add.period$ -- 24
+call.type$ -- 11
+change.case$ -- 11
+chr.to.int$ -- 219
+cite$ -- 15
+duplicate$ -- 636
+empty$ -- 769
+format.name$ -- 45
+if$ -- 2135
+int.to.chr$ -- 0
+int.to.str$ -- 11
+missing$ -- 105
+newline$ -- 58
+num.names$ -- 11
+pop$ -- 266
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 706
+stack$ -- 0
+substring$ -- 522
+swap$ -- 518
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 11
+warning$ -- 4
+while$ -- 42
+width$ -- 13
+write$ -- 122
+(There were 2 error messages)

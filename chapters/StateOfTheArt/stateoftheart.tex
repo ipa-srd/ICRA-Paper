@@ -1,17 +1,17 @@
 \section{State of the art}
 
-LIDAR scanners pose an attractive way to scan the environment, due to the simple interpretation of the data and the low computational power required. 
-The idea to extract information about people has been introduced in \cite{1013691} where laser range measurements \abbrev{LRM} are grouped into blobs and objects. 
-Moving objects could then be considered as people while any other object was not of interest. 
-In order to detect still-standing people, different approaches \cite{kleinehagenbrock2002person}, \cite{aguirre2014leg} used a combination of \abbrev{LRM} and imaging sensors.
-
-Arras et al. proposed a machine learning approach \cite{Arras07usingboosted}, where pre-defined geometrical features were trained using supervised learning. 
+LIDAR scanners pose an attractive way to scan the environment, due to the simple interpretation of the data and the low computational power required.
+The idea to extract people from this input has been introduced in \cite{1013691} where laser range measurements are grouped into blobs and objects. 
+Moving objects are considered as people with the downside of not detecting immovable objects.
+In order to improve on this idea, a combination of LIDAR and vision data \cite{kleinehagenbrock2002person} can be applied. Information of leg positions are here extracted from the laser scanner, while a camera provides additional information through skin-colored face detection. 
+Arras et al. proposed a machine learning algorithm \cite{Arras07usingboosted}, where pre-defined geometrical features are trained in a supervised learning approach. 
 It was further adapted in \cite{weinrich2014people} to expand the detection in retirement homes, allowing the classification of people with different walking aids. 
-This approach is very versatile, as it can easily be adapted by simply adding further features for a given class.
+The algorithm allows to add additional features, which are weighted and therefore filtered by importance.
+However, the expert knowledge of geometrical features pose a downside to the algorithm as well as the computational power required during evaluation. Convolutional neural networks therefore present a way to learn features without prior expertise. Since their introduction \cite{lecun_gradient-based_1998}, they are the go-to standard for object detection \cite{krizhevsky_imagenet_2012}, due to their versatility and their simple and fast implementation. Convolutional networks can be further expanded for segmentation of images \cite{long2015fully}, which gives a way to keep the input dimensionality while simultaneously detect and label objects.
 
-We improve on this idea, by using neural networks as the machine learning technique.
-This way, no knowledge about shapes or behaviour is required, which makes this approach easy to implement and also requires less computational power. 
-For the human eye, one big factor in the detection of legs on a laser scan is the movement of people. 
-By providing the network with multiple frames at once, we can therefore increase the accuracy, as the system will then take motion into account.\\
+Trajectory prediction has already been achieved in \cite{graves2013generating}, where handwriting is generated using a mixture density network (MDN) \cite{bishop1994mixture}. These networks provide a way to model the most probable outcome as a function of multiple density terms. In order to predict from a history of input values, a Long short term memory (LSTM) \cite{hochreiter1997long} is included. This allows a way to store previous inputs and therefore predict outcomes when similarities are found. People based trajectory prediction has previously been achieved \cite{alahi2016social} using a similar approach. Making use of LSTM and MDN we therefore predict trajectories using unsupervised learning, requiring only positions of people as an input.
 
-todo: expand section with some work of vision based object detection, convolutional networks and other related work that was of interest for the selected approach
+
+
+
+\todo{expand section with some work of vision based object detection, convolutional networks and other related work that was of interest for the selected approach}
