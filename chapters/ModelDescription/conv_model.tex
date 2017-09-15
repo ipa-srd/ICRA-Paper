@@ -3,13 +3,21 @@
 
 \label{sec:Model}
 
-Learning positions of people and identifying them requires a neural network to solve several tasks. First, the laser scans are classified by using a set of convolutional and pooling layers. The points labeled as belonging to legs are sorted out and typically clustered based on euclidian distance, in order to identify persons. This approach does not work well, when people are close together or even when they are moving, as the program would then either cluster too many legs together or see two legs as separate people respectively.
+Learning to detect people from laser scans requires a neural network to solve several tasks. 
+First, each laser scan point has to be classified as leg or non-leg.
+This task is solved by using a set of convolutional and pooling layers. 
+The points labeled as belonging to legs are sorted out and clustered in order to identify persons.
+In a naive approach, this clustering is carried out based on euclidian distance between scan points.
+However, this approach does not work well, when people are close to each other or when they are moving, as the algorithm would then either cluster too many legs together or see two legs as separate people respectively.
 
-This can be countered by supplying the clustering algorithm with additional information. During the convolution step, the network learns features which are unique to legs in different situations. Those can be extracted and passed as additional parameters to the clustering algorithm, which not only allows higher accuracy, but also providing a pair of legs with a unique identifier.
+This can be countered by supplying the clustering algorithm with additional information.
+During the convolution step, the network learns features which are unique to legs in different situations. 
+Those can be extracted and passed as additional parameters to the clustering algorithm, which not only allows higher accuracy, but also providing a pair of legs with a unique identifier.
 
 Having identifiers and positions, they can then be fed into the third and last step of the setup, which aims to predict trajectories of individual people. The network takes a set of positions, that are run through an LSTM cell, which implicitly works as a memory for the program and holds the information necessary to build future trajectories.
 
 \subsection{Classification of the laser scan}
+\label{subs:classification}
 
 \begin{figure}
 
@@ -39,10 +47,10 @@ To gain a classification for each point in the most current laser scan, the outp
 \subsection{Clustering of leg points}
 \label{subs:clustering}
 
-In order to gain information about the current position and identity of people, the classified points are clustered together. This usually poses two major problems:
+In order to gain information about the legs position and identity people, the classified points are clustered. This usually poses two major problems:
 \begin{itemize}
-\item The clustering has a high margin of error when legs of a single person are too far away or when legs of different people are together
-\item tracking of a person has to be handled externally.
+\item The clustering has a high margin of error when legs of a single person are too far away or when legs of different people are close to each other.
+\item The tracking of a person has to be handled externally.
 \end{itemize} 
 With the following approach, we find a high accuracy and are also able to track people on certain features.
 
@@ -70,7 +78,7 @@ This introduces $2*N_{convs}$ additional parameters to the clustering algorithm,
 
 \subsection{Trajectory prediction}
 
-With the information of position of individual people, we can learn to predict trajectories over some time. A trajectory of a single person can be modeled with a normal distribution, or if the path is unclear, a number of distributions $N_{dist}$ are necessary.
+With the information about the position of individual persons, we can learn to predict trajectories over some time horizon. A trajectory of a single person can be modeled with a normal distribution, or if the path is unclear, a number of distributions $N_{dist}$ are necessary.
 
 This leads to the approach of using a mixture density network \cite{bishop1994mixture}. The network learns from parameters $\pi$, $\mu$, $\sigma$ and $\rho$ according to \cite{graves2013generating}, so that a distribution is given as:
 \begin{equation}
@@ -84,6 +92,6 @@ Therefore we can define the ensemble of distributions as
 \begin{equation}
 	Pr(x|y) = \sum_{j=1}^{N_{dist}} \pi_j \mathcal{N}(x|\mu_j,\sigma_j,\rho_j)
 \end{equation}
-for every input point x from the laser scan.
+for every input point $x$ from the laser scan.
 
-As the future movement depends on previous positions, the parameters $\mu$, $\sigma$, $\rho$ and $\pi$ are derived from a recurrent network cell. A long-short term memory (LSTM) was used, which allows for information to be kept over a long time. This way, the network was trained on different patterns, so that it can recognize similar ones later in the evaluation. The LSTM cell will take the input positions and directly outputs the parameters for the mixture of normal distributions.
+As the future movement depends on previous positions, the parameters $\mu$, $\sigma$, $\rho$ and $\pi$ are derived from a recurrent network cell. A LSTM was used, which allows for information to be kept over a long time. This way, the network was trained on different patterns, so that it can recognize similar ones later in the evaluation. The LSTM cell will take the input positions and directly outputs the parameters for the mixture of normal distributions.
