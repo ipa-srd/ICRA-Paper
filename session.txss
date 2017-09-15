@@ -1,9 +1,9 @@
 [Session]
 FileVersion=1
-File0\FileName=main.tex
-File0\Line=0
-File0\Col=0
-File0\FirstLine=0
+File0\FileName=root.tex
+File0\Line=10
+File0\Col=11
+File0\FirstLine=3
 File0\FoldedLines=
 File1\FileName=chapters/chapters.tex
 File1\Line=2
@@ -20,10 +20,10 @@ File3\Line=11
 File3\Col=0
 File3\FirstLine=0
 File3\FoldedLines=
-MasterFile=
-CurrentFile=chapters/ModelDescription/conv_model.tex
+MasterFile=root.tex
+CurrentFile=root.tex
 Bookmarks=@Invalid()
 
 [InternalPDFViewer]
-File=main.pdf
+File=root.pdf
 Embedded=true
