@@ -9,18 +9,19 @@ This can be countered by supplying the clustering algorithm with additional info
 
 Having identifiers and positions, they can then be fed into the third and last step of the setup, which aims to predict trajectories of individual people. The network takes a set of positions, that are run through an LSTM cell, which implicitly works as a memory for the program and holds the information necessary to build future trajectories.
 
-\subsection{Classification of the laser scan}
+\subsection{Classification of the lidar data}
+\label{sec:classification}
 
 \begin{figure}
 
 \def\svgwidth{0.4 \textwidth}
 \small
 \import{figures/}{conv_layers.pdf_tex}
-\caption{\textbf{Laser scan classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class leg or non-leg in (5).}
+\caption{\textbf{Lidar classification.} (1) The input is a 2D array of $N_{points} \times N_{frames}$ containing distances from a laser scan. It is fed into (2), where features are extracted using convolutions and downscaled using a pooling layer. After $N_{conv}$ iterations of (2), the now one-dimensional output is upscaled in (3) into the shape $N_{points}$. (4) multiplies the output and applies the softmax function, resulting in probabilities of each point belonging to class leg or non-leg in (5).}
 \label{fig:laser_classification}
 \end{figure}
 
-In order to classify a laser scan, a snapshot of the current scan is taken in equal timesteps. Each snapshot contains one dimensional arrays of length $N_{points}$ with distances $r_i$ to the closest intersections from the laser beams.
+In order to classify a lidar data, a snapshot of the current scan is taken in equal timesteps. Each snapshot contains one dimensional arrays of length $N_{points}$ with distances $r_i$ to the closest intersections from the laser beams.
 
 From the one-dimensional array as input, the network would only find characteristics in the objective shapes of the laser scans. To also account for movement, $N_{frames}$ snapshots are composed together.
 The desired outputs are probabilities for each point in the most current snapshot to be in either class leg or non-leg.
