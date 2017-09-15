@@ -75,6 +75,15 @@ Conclusively, the convoluted leg detector performs very well in regards to false
 
 \subsection{Trajectory prediction}
 
-From the high accuracy of the people detection, we can extract positions to learn to predict trajectories. A benchmark has not been performed, although we can find the results as images in Figure \ref{fig:trajectory_pred}. As the output of the network is a mixture of normal distributions, the prediction program can extract the most likely positions in order to find future locations of people.
+From the high accuracy of the people detection, we can extract positions to learn to predict trajectories. A benchmark has not been performed, although we can find the results of the trained network as images in Figure \ref{fig:trajectory_pred}. The algorithm outputs a mixture of normal distributions, which the prediction program can extract to the most likely positions in order to find future locations of people, which are not displayed in the diagram but can be directly modeled from the output densities.
 
-The model works well in this application and can be used to follow people, and evade incoming persons. \todo{blah blah blah, will say more once the training is finally finished}
+The prediction lies within good accordance of the ground truth and outputs the future trajectory with a high probability. In the next step, the output of the program can be fed into the network again, to produce successive predictions for almost any timespan.
+
+\begin{figure}
+	\normalsize
+	\begin{center}
+		 \includegraphics[width=0.45\textwidth]{figures/trajectory_pred.png}
+	\end{center}
+	\caption{\textbf{Trajectory prediction.} Shown is the current and past positions of the person (grey), the positions in the next two frames (red) and the prediction in the background.}
+	\label{fig:trajectory_pred}
+\end{figure}
