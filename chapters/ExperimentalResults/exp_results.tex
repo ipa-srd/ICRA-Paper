@@ -41,10 +41,10 @@ At a distance of $2.2 m$ we still find good results in a reasonable range around
 
 \subsection{People detection using clusters}
 
-Detecting people from the output of the laser classification is achieved by clustering the results as explained in section \ref{subs:clustering}. We compare the detection to the algorithm provided in the official ROS-repository\footnote{http://wiki.ros.org/leg\_detector} based on the paper of Arras et. al.\cite{Arras07usingboosted}, which uses a kalman filter to detect people. A ten second long exposure from the corridor data was hand-labeled and compared to the outputs of the programs. Due to the dependency on the distance to the scanner, different radii were considered. We find the parameters:
+Detecting people from the output of the laser classification is achieved by clustering the results as explained in section \ref{subs:clustering}. We compare the detection to the algorithm provided in the official ROS-repository\footnote{http://wiki.ros.org/leg\_detector} based on the paper of Arras et. al.\cite{Arras07usingboosted}, which uses a kalman filter to detect people and an Adaboost algorithm to label laser points. A ten second long exposure from the corridor data was hand-labeled and compared to the outputs of the programs. Due to the dependency on the distance to the scanner, different radii were considered. We find the parameters:
 \begin{itemize}
 	\item \textbf{True positives} ($TP$): The people that were detected correctly,
-	\item \textbf{False positives} ($FP$): Non-human objects classified as persons,
+	\item \textbf{False positives} ($FP$): Non-human objects classified as people,
 	\item \textbf{False negatives} ($FN$): People that were not detected,
 \end{itemize}
 which are combined into the $F-Measure \in \left[ 0,1 \right]$, separating good results (close to $1$) from bad results (close to $0$).
@@ -65,9 +65,15 @@ with
 	\begin{center}
 		\input{figures/people_det.pgf}
 	\end{center}
-	\caption{\textbf{Accuracy of people detection.} People detectioin was benchmarked against the official leg detector, while counting the number of people on a frame-by-frame basis. The $F-Measure$ is a function of $Precission$ and $Recall$. Models with values close to $1$ are therefore good models as opposed to models close to $0$. The new convolutional leg detector outperforms the official leg detector in all tests.}
+	\caption{\textbf{Accuracy of people detection.} People detectioin was benchmarked against the official leg detector, while counting the number of people on a frame-by-frame basis. The new convolutional leg detector outperforms the official leg detector in all tests.}
 \end{figure}
 
-The official leg detector outputs probabilites of persons and legs, therefore the threshold was adapted to compare the results in a more meaningful way. We find that the proposed leg detector detects people more accurately with fewer false positives and more true positives.
+The official leg detector outputs probabilites of persons and legs, therefore the threshold was adapted to compare the results in a more meaningful way. Especially interesting is the $Precission$, as we should not allow the robot to detect any false positives. The proposed, convoluted leg detector only starts picking up false positives after $3.4 m$, like the Adaboost leg detector with 70\% threshold. However, when comparing these two, we find a large gap in the recall, meaning that the Adaboost leg detector has a low detection rate.
+Conclusively, the convoluted leg detector performs very well in regards to false positives and false negatives leading to a high $Recall$ and a high $Precission$, which can be seen in the $F-Measure$.
 
 
+\subsection{Trajectory prediction}
+
+From the high accuracy of the people detection, we can extract positions to learn to predict trajectories. A benchmark has not been performed, although we can find the results as images in Figure \ref{fig:trajectory_pred}. As the output of the network is a mixture of normal distributions, the prediction program can extract the most likely positions in order to find future locations of people.
+
+The model works well in this application and can be used to follow people, and evade incoming persons. \todo{blah blah blah, will say more once the training is finally f...ing finished}
