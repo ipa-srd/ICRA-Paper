@@ -85,6 +85,7 @@ axarr[1].set_ylabel(r"Precission")
 
 axarr[1].grid()
 axarr[1].margins(0.05, 0.1)
+axarr[1].yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
 
 # ----------------------------------------
 axarr[2].plot(data[:,1], rec_1, "-", label="Convoluted leg detector")
